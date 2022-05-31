@@ -6,6 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BrowserUtils {
 
     public static void waitFor(int seconds) {
@@ -34,6 +37,13 @@ public class BrowserUtils {
         ((JavascriptExecutor) Driver.get()).executeScript("arguments[0].scrollIntoView(true);", element);
         ((JavascriptExecutor) Driver.get()).executeScript("arguments[0].click();", element);
     }
+
+    public static void switchToWindowWithIndex(int index) {
+        List<String> windowHandles = new ArrayList<>(Driver.get().getWindowHandles());
+        Driver.get().switchTo().window(windowHandles.get(index));
+    }
+
+
 }
 
 
