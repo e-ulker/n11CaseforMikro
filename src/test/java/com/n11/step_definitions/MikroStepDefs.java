@@ -9,6 +9,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 
@@ -49,47 +50,21 @@ public class MikroStepDefs {
         BrowserUtils.waitFor(3);
         mikro.DahaSonraButton.click();
         BrowserUtils.waitFor(3);
-     //   mikro.DahaSonraButton.click();
         mikro.EmailBox.sendKeys(email);
         mikro.PasswordBox.sendKeys(password);
         mikro.LoginButton.click();
 
-        mikro.EmailBox.sendKeys(email);
-        mikro.PasswordBox.sendKeys(password);
-        mikro.LoginButton.click();
-
-
-
-
-        /* Java script ile tıklatmaya çalıştım
-        JavascriptExecutor jse=(JavascriptExecutor) Driver.get();
-        jse.executeScript("arguments[0].click();", mikro.DahaSonraButton);
-        BrowserUtils.waitFor(2);
-*/
 
     }
-    //"Daha sonra" button dün gece çıkmıyordu.neyapmalı orada,bir condition mı koymalı
 
 
     @Then("verify user login in the webpage")
     public void verifyUserLoginInTheWebpage() throws InterruptedException {
-/*
- //Hesabım a Hover over ile hareket edip,çıkış yap button u isdisplayed mi?
- //isenabled mı bakılmaya çalışıldı
 
 
-        Actions actions = new Actions();
+        Assert.assertTrue(mikro.UserName.isDisplayed());
 
-        Thread.sleep(2000);
-        actions.moveToElement(mikro.Hesabım).perform();
-
-        Assert.assertTrue(mikro.ÇıkışYapButton.isDisplayed());
-        //isdisplayed ile Erva Ulker
-
-      */
-
-
-//  kullanıcı görünüyorsa da olur --->Assert.assertTrue(mikro.UserName.isDisplayed());
+        //username Erva Ulker görünüyor mu diye check edildi
 
 
     }
@@ -97,14 +72,16 @@ public class MikroStepDefs {
 
     @When("user write {string} in searchBox")
     public void userWriteInSearchBox(String item) {
-       // mikro.SearchBox.clear();
-        mikro.SearchBox.click();
+      //   mikro.SearchBox.clear();
         BrowserUtils.waitFor(2);
-        mikro.SearchBox.sendKeys(item);
- //       mikro.DahaSonraButton2.click();  //login olmadan işlem yapmaya çalıştım,direct yönlendirilince çıktı
+        mikro.SearchBox.click();
+   //     BrowserUtils.waitFor(2);
+
+
+        mikro.SearchBox.sendKeys("Iphone");
+        //       mikro.DahaSonraButton2.click();  //login olmadan işlem yapmaya çalıştım,direct yönlendirilince çıktı
         BrowserUtils.waitFor(2);
         mikro.SearchButton.click();
-        //bu doğruymuş(NUR) ( mikro.SearchBox.sendKeys(item);)
     }
 
 
@@ -142,21 +119,6 @@ public class MikroStepDefs {
 
 
     }
-/*
-    @Then("verify page {string} is opened")
-    public void verifyPageIsOpened(String page) {
-
-    }
-
- */
-
-/*
-    @Then("verify for {string} in page {string} is opened")
-    public void verifyForInPageIsOpened(String item, String page) {
-
-    }
-
- */
 
     @Then("verify for {string} results are opened in page {string}")
     public void verifyForResultsAreOpenedInPage(String item, String page) {
@@ -179,7 +141,7 @@ public class MikroStepDefs {
         //hover over yapmaya çalıştım
 
         Actions actions = new Actions(driver);
-        //ben driver yazdım ama başka birşeyde olabilir,Actions() içinde birşey arıyordu çnk
+        //ben driver yazdım ama başka birşeyde olabilir,Actions() içinde
 
         Thread.sleep(2000);
         actions.moveToElement(mikro.Hesabım).perform();
@@ -222,8 +184,8 @@ public class MikroStepDefs {
     @Then("verify user in Favorilerim page")
     public void verifyUserInFavorilerimPage() {
 
-        String actualtitle=mikro.FavorilerimTitle.getText();
-        String expectedtitle="Favorilerim";
+        String actualtitle = mikro.FavorilerimTitle.getText();
+        String expectedtitle = "Favorilerim";
         Assert.assertTrue(actualtitle.equals(expectedtitle));
 
     }
@@ -249,16 +211,7 @@ public class MikroStepDefs {
         mikro.DahaSonraButton.click();
         BrowserUtils.waitFor(2);
         mikro.FacebookGirişButton.click();
-/*
-        Set<String> windowHandles = Driver.get().getWindowHandles();
 
-        for (String tab : windowHandles) {
-            driver.switchTo().window(tab);
-            if (driver.getTitle().equals(tab)) {
-                break;
-            }
-        }
- */
         BrowserUtils.switchToWindowWithIndex(1);
         BrowserUtils.waitFor(2);
 
@@ -266,7 +219,25 @@ public class MikroStepDefs {
         mikro.FacebookPasswordButton.sendKeys("e123456u");
         mikro.facebookgirişbutton.click();
 
-      //  Set<String> handles=driver.getWindowHandles();
+        BrowserUtils.switchToWindowWithIndex(0);
+        BrowserUtils.waitFor(2);
+
+/*
+
+       // Ramazan Abiden methodlar windowhandle methodları
+
+            for(String windowHandle:driver.getWindowHandles()){
+            if(!windowHandle.equals(mainWindowHandle)){
+                driver.switchTo().window(windowHandle);
+            }
+        }
+        for(String windowHandle:driver.getWindowHandles()){
+            if(!windowHandle.equals(popupWindowHandle)){
+                driver.switchTo().window(windowHandle);
+            }
+        }
+
+*/
 
 
     }

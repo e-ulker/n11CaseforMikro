@@ -29,15 +29,24 @@ public class MikroPage extends BasePage {
     @FindBy(className = ".logoutBtn")
     public WebElement ÇıkışYapButton;
 
-    @FindBy(xpath = "(//*[text()='Erva Ulker'])[1]")
+    @FindBy(xpath = "(//*[text()='Erva Ulker'])")
     // bu da hesabım altındaki isim (//a[@title='Hesabım'])[2]
     public WebElement UserName;
 
     @FindBy(xpath = "(//button[text()='Daha Sonra'])[1]")
     public WebElement DahaSonraButton;
 
-    @FindBy(id = "searchData")
+   // @FindBy(id = "searchData")
+   // @FindBy(xpath = "//input[@id='searchData']")
+    //@FindBy(id= "productSearchForm")
+  //  @FindBy(xpath = "//div[@class='searchArea']")
+    //@FindBy(xpath = "//form[@action='https://www.n11.com/arama']")
+   // @FindBy(xpath = "//span[@class='delSearchBtn']")
+    @FindBy(css = ".searchBox.withLocalization ")
     public WebElement SearchBox;
+
+    @FindBy(xpath = "(//button[@class='dn-slide-deny-btn'])[1]")
+    public WebElement dahaSonraButton;
 
     @FindBy(css = ".icon.iconSearch")
     public WebElement SearchButton;
