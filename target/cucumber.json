@@ -1,0 +1,232 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2022-06-01T11:43:34.066Z",
+        "line": 4,
+        "name": "N11 login",
+        "description": "",
+        "id": "n11-case;n11-login",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [],
+        "tags": [
+          {
+            "name": "@mikro"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2022-06-01T11:43:34.248Z",
+        "before": [
+          {
+            "result": {
+              "duration": 4592735800,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.n11.step_definitions.Hooks.setUp()"
+            }
+          }
+        ],
+        "line": 25,
+        "name": "caseler devamı",
+        "description": "",
+        "id": "n11-case;caseler-devamı",
+        "after": [
+          {
+            "result": {
+              "duration": 2158100,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.n11.step_definitions.Hooks.tearDown(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 13140609300,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "user goes to \"https://www.n11.com/\" pagee",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"https://www.n11.com/\"",
+                  "offset": 13
+                }
+              ],
+              "location": "com.n11.step_definitions.MikroStepDefs.theUserGoesToPagee(java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 9970600,
+              "status": "passed"
+            },
+            "line": 27,
+            "name": "verify user in homepage",
+            "match": {
+              "location": "com.n11.step_definitions.MikroStepDefs.verifyUserInHomepage()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 3743358700,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "user clicks \"Giriş Yap\" button",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Giriş Yap\"",
+                  "offset": 12
+                }
+              ],
+              "location": "com.n11.step_definitions.MikroStepDefs.userClicksButton(java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 12334161200,
+              "status": "passed"
+            },
+            "line": 29,
+            "name": "click Facebook ile giriş yap button for login with facebook account",
+            "match": {
+              "location": "com.n11.step_definitions.MikroStepDefs.clickFacebookIleGirişYapButtonForLoginWithFacebookAccount()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 5141048400,
+              "status": "passed"
+            },
+            "line": 30,
+            "name": "verify user login in the webpage",
+            "match": {
+              "location": "com.n11.step_definitions.MikroStepDefs.verifyUserLoginInTheWebpage()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 8367006000,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "user write \"Iphone\" in searchBox",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Iphone\"",
+                  "offset": 11
+                }
+              ],
+              "location": "com.n11.step_definitions.MikroStepDefs.userWriteInSearchBox(java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 283265200,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "user should see the \"Iphone\" results",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Iphone\"",
+                  "offset": 20
+                }
+              ],
+              "location": "com.n11.step_definitions.MikroStepDefs.userShouldSeeTheResults(java.lang.String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 4403544500,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "click the page \"2\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"2\"",
+                  "offset": 15
+                }
+              ],
+              "location": "com.n11.step_definitions.MikroStepDefs.clickThePage(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 11914400,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "verify for \"ıphone\" results are opened in page \"2\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"ıphone\"",
+                  "offset": 11
+                },
+                {
+                  "val": "\"2\"",
+                  "offset": 47
+                }
+              ],
+              "location": "com.n11.step_definitions.MikroStepDefs.verifyForResultsAreOpenedInPage(java.lang.String,java.lang.String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 569403200,
+              "status": "passed"
+            },
+            "line": 35,
+            "name": "user add \"3\"th product in favorite",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"3\"",
+                  "offset": 9
+                }
+              ],
+              "location": "com.n11.step_definitions.MikroStepDefs.userAddThProductInFavorite(java.lang.String)"
+            },
+            "keyword": "When "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@mikro"
+          }
+        ]
+      }
+    ],
+    "name": "n11 case",
+    "description": "",
+    "id": "n11-case",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/Mikro.feature",
+    "tags": []
+  }
+]

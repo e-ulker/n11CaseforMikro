@@ -42,7 +42,7 @@ public class MikroPage extends BasePage {
   //  @FindBy(xpath = "//div[@class='searchArea']")
     //@FindBy(xpath = "//form[@action='https://www.n11.com/arama']")
    // @FindBy(xpath = "//span[@class='delSearchBtn']")
-    @FindBy(css = ".searchBox.withLocalization ")
+    @FindBy(xpath = "//input[@id='searchData']")
     public WebElement SearchBox;
 
     @FindBy(xpath = "(//button[@class='dn-slide-deny-btn'])[1]")
@@ -140,7 +140,7 @@ public class MikroPage extends BasePage {
 
     public void AddFavorite(String ProductLine) {
 
-        String favoriteLocator = "//div[@id='view']//ul//li[" + ProductLine + "]//span[@title='Favorilere ekle']";
+        String favoriteLocator = "(//span[@title='Favorilere ekle'])["+ProductLine+"]";
         Driver.get().findElement(By.xpath(favoriteLocator)).click();
 
         //3.sıradkini favorilere ekle butunu
