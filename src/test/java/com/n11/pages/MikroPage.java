@@ -26,7 +26,7 @@ public class MikroPage extends BasePage {
     //(//a[@title='Hesabım'])[1]
     public WebElement Hesabım;
 
-    @FindBy(className = ".logoutBtn")
+    @FindBy(css = ".logoutBtn")
     public WebElement ÇıkışYapButton;
 
     @FindBy(xpath = "(//*[text()='Erva Ulker'])")
@@ -36,12 +36,7 @@ public class MikroPage extends BasePage {
     @FindBy(xpath = "(//button[text()='Daha Sonra'])[1]")
     public WebElement DahaSonraButton;
 
-   // @FindBy(id = "searchData")
-   // @FindBy(xpath = "//input[@id='searchData']")
-    //@FindBy(id= "productSearchForm")
-  //  @FindBy(xpath = "//div[@class='searchArea']")
-    //@FindBy(xpath = "//form[@action='https://www.n11.com/arama']")
-   // @FindBy(xpath = "//span[@class='delSearchBtn']")
+
     @FindBy(xpath = "//input[@id='searchData']")
     public WebElement SearchBox;
 
@@ -76,7 +71,7 @@ public class MikroPage extends BasePage {
     public WebElement FavorilerimTitle;
 
     @FindBy(css = ".deleteProFromFavorites")
-    public  WebElement FavoriListtenÜrünüSilme;
+    public WebElement FavoriListtenÜrünüSilme;
 
     @FindBy(xpath = "(//div[@id='view']//ul//li)[1]")
     public WebElement Favorilerimdekiürün;
@@ -89,6 +84,15 @@ public class MikroPage extends BasePage {
 
     @FindBy(xpath = "//div[text()='İzlediğiniz bir ürün bulunmamaktadır.']")
     public WebElement FavorilerimListEmpty;
+
+    @FindBy(xpath = "(//button[text()='Daha Sonra'])[1]")
+    public WebElement Dahasonra;
+
+
+    /*
+    @FindBy(xpath = "//div[@class='hOpenMenuContent']/a[@title='Çıkış Yap']")
+    public WebElement çıkışyapbutton;
+  */
 
 
 //FACEBOOK İÇİN
@@ -112,8 +116,6 @@ public class MikroPage extends BasePage {
     @FindBy(xpath = "//div[@class='pagination']//a[3][@class='active ']")
     public WebElement page2active;
 */
-
-
 
 
     public void ClickPage(String pagenumber) {
@@ -140,15 +142,14 @@ public class MikroPage extends BasePage {
 
     public void AddFavorite(String ProductLine) {
 
-     //   String favoriteLocator = "(//span[@title='Favorilere ekle'])["+ProductLine+"]";
-        String favoriteLocator="//div[@id='view']//ul//li["+ProductLine+"]//span[@title='Favorilere ekle']";
+        //   String favoriteLocator = "(//span[@title='Favorilere ekle'])["+ProductLine+"]";
+        String favoriteLocator = "//div[@id='view']//ul//li[" + ProductLine + "]//span[@title='Favorilere ekle']";
         Driver.get().findElement(By.xpath(favoriteLocator)).click();
 
         //3.sıradkini favorilere ekle butunu
         // div[@id='view']//ul//li[3]//span[@title='Favorilere ekle']
 
     }
-
 
 
 }

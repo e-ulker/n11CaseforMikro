@@ -40,6 +40,9 @@ Feature: n11 case
     Then verify user in Favorilerim page
     When user delete the product
     Then verify the product is deleted
+    When user clicks Çıkış Yap button
+    Then verify user log out
+
 
 
 

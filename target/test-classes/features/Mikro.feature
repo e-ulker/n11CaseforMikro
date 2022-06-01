@@ -33,13 +33,16 @@ Feature: n11 case
     And click the page "2"
     Then verify for "ıphone" results are opened in page "2"
     When user add "3"th product in favorite
-    #And user clicks to "Favorilerim / Listelerim" button
-    #Then verify open the "istek-listelerim" page
-    #Then verify displayed the "Favorilerim / Listelerim" title
-    #And click the favorilerim button
-    #Then verify user in Favorilerim page
-    #When user delete the product
-   # Then verify the product is deleted
+    And user clicks to "Favorilerim / Listelerim" button
+    Then verify open the "istek-listelerim" page
+    Then verify displayed the "Favorilerim / Listelerim" title
+    And click the favorilerim button
+    Then verify user in Favorilerim page
+    When user delete the product
+    Then verify the product is deleted
+    When user clicks Çıkış Yap button
+    Then verify user log out
+
 
 
 

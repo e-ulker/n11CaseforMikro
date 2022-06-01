@@ -4,6 +4,7 @@ package com.n11.step_definitions;
 import com.n11.pages.MikroPage;
 import com.n11.utilities.BrowserUtils;
 import com.n11.utilities.Driver;
+import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -39,6 +40,11 @@ public class MikroStepDefs {
     public void userClicksButton(String GirişYap) {
         mikro.GirişYapButton.click();
 
+        if (mikro.Dahasonra.isDisplayed()){
+            mikro.Dahasonra.click();
+        }else{
+            BrowserUtils.waitFor(2);
+        }
 
     }
 
@@ -226,6 +232,31 @@ public class MikroStepDefs {
 
 */
 
+
+    }
+
+    @When("user clicks Çıkış Yap button")
+    public void userClicksÇıkışYapButton() throws InterruptedException {
+
+        Actions actions = new Actions(Driver.get());
+
+        Thread.sleep(2000);
+        actions.moveToElement(mikro.Hesabım).perform();
+
+        mikro.ÇıkışYapButton.click();
+
+
+    }
+
+    @Then("verify user log out")
+    public void verifyUserLogOut() {
+
+     //   Assert.assertTrue(mikro.LoginButton.isDisplayed());
+
+        String ActualTitle=Driver.get().getTitle();
+        String ExpectedTitle="Giriş Yap - n11.com";
+
+        Assert.assertEquals(ExpectedTitle,ActualTitle);
 
     }
 }
