@@ -140,7 +140,8 @@ public class MikroPage extends BasePage {
 
     public void AddFavorite(String ProductLine) {
 
-        String favoriteLocator = "(//span[@title='Favorilere ekle'])["+ProductLine+"]";
+     //   String favoriteLocator = "(//span[@title='Favorilere ekle'])["+ProductLine+"]";
+        String favoriteLocator="//div[@id='view']//ul//li["+ProductLine+"]//span[@title='Favorilere ekle']";
         Driver.get().findElement(By.xpath(favoriteLocator)).click();
 
         //3.sıradkini favorilere ekle butunu

@@ -31,7 +31,6 @@ public class MikroStepDefs {
     public void verifyUserInHomepage() {
         String expectedURL = "https://www.n11.com/";
         String actualURL = Driver.get().getCurrentUrl();
-        //   System.out.println("actual"+actualURL);
         Assert.assertTrue(expectedURL.equals(actualURL));
 
     }
@@ -64,22 +63,16 @@ public class MikroStepDefs {
 
         Assert.assertTrue(mikro.UserName.isDisplayed());
 
-        //username Erva Ulker görünüyor mu diye check edildi
-
 
     }
 
 
     @When("user write {string} in searchBox")
     public void userWriteInSearchBox(String item) {
-      //   mikro.SearchBox.clear();
         BrowserUtils.waitFor(2);
         mikro.SearchBox.click();
-   //     BrowserUtils.waitFor(2);
-
 
         mikro.SearchBox.sendKeys("Iphone");
-        //       mikro.DahaSonraButton2.click();  //login olmadan işlem yapmaya çalıştım,direct yönlendirilince çıktı
         BrowserUtils.waitFor(2);
         mikro.SearchButton.click();
     }
@@ -87,15 +80,14 @@ public class MikroStepDefs {
 
     @Then("user should see the {string} results")
     public void userShouldSeeTheResults(String Iphone) {
-        // System.out.println(mikro.IphoneResults.getText()); //Iphone,için 218,708 sonuç bulundu.Çıkmış
-        // text i dene sonuçta ıphone kılıfta olabilir.ekranda ne görünürse UI için böyle
 
         String actual = mikro.IphoneResults.getText();
         String expected = Iphone;
 
         Assert.assertTrue(actual.contains(expected));
 
-  /*
+
+/*
         String ActualResult = driver.getCurrentUrl();
         String expected=Iphone;
         Assert.assertTrue(ActualResult.contains(Iphone));
@@ -105,8 +97,6 @@ public class MikroStepDefs {
         Note:aslında ne ararsan iphone my Iphone mu ne yazarsan üstte,url kısmında o yazıyor,
         ama ancak UI da webpage üzerinde Iphone olarak otomatik düzeltir
 
-        //paramertre olduğu için feature file daki aynı şeyin olması zorunlu değil,adı değişebilir
-        //göndermeden önce Notları commentler sil (//)
 */
 
 
@@ -137,16 +127,11 @@ public class MikroStepDefs {
     @And("user clicks to {string} button")
     public void userClicksToButton(String favorilerim) throws InterruptedException {
 
-//------------------------------------------------------------------
-        //hover over yapmaya çalıştım
 
-        Actions actions = new Actions(driver);
-        //ben driver yazdım ama başka birşeyde olabilir,Actions() içinde
+        Actions actions = new Actions(Driver.get());
 
         Thread.sleep(2000);
         actions.moveToElement(mikro.Hesabım).perform();
-
-        //-------------------------------
 
         mikro.FavorilerimListerimButton.click();
 
@@ -155,7 +140,8 @@ public class MikroStepDefs {
 
     @Then("verify open the {string} page")
     public void verifyOpenThePage(String İstekListem) {
-        String actualUrl = driver.getCurrentUrl();
+        String actualUrl = Driver.get().getCurrentUrl();
+        System.out.println("istek listerim mi=?"+actualUrl);
         String expectedUrl = "istek-listelerim";
         Assert.assertTrue(actualUrl.contains(expectedUrl));
 
@@ -166,6 +152,7 @@ public class MikroStepDefs {
     public void verifyDisplayedTheTitle(String favorilerimTitle) {
 
         String ActualTitle = mikro.FavorilerimListerimTitle.getText();
+        System.out.println(ActualTitle);
         String ExpectedTitle = favorilerimTitle;
 
         Assert.assertTrue(ActualTitle.equals(ExpectedTitle));
