@@ -22,7 +22,6 @@ import java.util.concurrent.TimeUnit;
 
 public class MikroStepDefs {
 
-  //  MikroPage mikro = new MikroPage();
     HomePage homePage = new HomePage();
     FacebookAuthPage facebookAuthPage = new FacebookAuthPage();
     LoginPage loginPage = new LoginPage();
