@@ -17,7 +17,6 @@ public class Hooks {
         Driver.get().manage().window().maximize();
         Driver.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
- //       Driver.get().manage().window().fullscreen();
     }
 
 
@@ -28,7 +27,7 @@ public class Hooks {
             scenario.attach(screenshot, "image/png", "screenshot");
         }
 
-    //    Driver.closeDriver();
+        Driver.closeDriver();
 
     }
 

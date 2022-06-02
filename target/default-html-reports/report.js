@@ -14,21 +14,11 @@ formatter.scenario({
     }
   ]
 });
-formatter.scenario({
-  "name": "caseler devamı",
-  "description": "",
-  "keyword": "Scenario",
-  "tags": [
-    {
-      "name": "@mikro"
-    }
-  ]
-});
 formatter.before({
   "status": "passed"
 });
 formatter.step({
-  "name": "user goes to \"https://www.n11.com/\" pagee",
+  "name": "user navigates to \"https://www.n11.com/\" page",
   "keyword": "When "
 });
 formatter.match({
@@ -38,11 +28,11 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "verify user in homepage",
+  "name": "verify that the page title is \"n11.com - Hayat Sana Gelir\"",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "com.n11.step_definitions.MikroStepDefs.verifyUserInHomepage()"
+  "location": "com.n11.step_definitions.MikroStepDefs.verify_that_the_page_title_is(java.lang.String)"
 });
 formatter.result({
   "status": "passed"
@@ -58,7 +48,7 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "click Facebook ile giriş yap button for login with facebook account",
+  "name": "user logs in with Facebook",
   "keyword": "And "
 });
 formatter.match({
@@ -68,17 +58,17 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "verify user login in the webpage",
+  "name": "verify that username \"Erva Ulker\" is visible under My Account",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "com.n11.step_definitions.MikroStepDefs.verifyUserLoginInTheWebpage()"
+  "location": "com.n11.step_definitions.MikroStepDefs.verify_that_is_visible_under_My_Account(java.lang.String)"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user write \"Iphone\" in searchBox",
+  "name": "user searches for \"Iphone\"",
   "keyword": "When "
 });
 formatter.match({
@@ -88,7 +78,7 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user should see the \"Iphone\" results",
+  "name": "verify that user sees the results for \"Iphone\"",
   "keyword": "Then "
 });
 formatter.match({
@@ -118,11 +108,101 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user add \"3\"th product in favorite",
+  "name": "user adds the product number \"3\" on the page to Favourites",
   "keyword": "When "
 });
 formatter.match({
   "location": "com.n11.step_definitions.MikroStepDefs.userAddThProductInFavorite(java.lang.String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "user clicks to \"Favorilerim / Listelerim\" button",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "com.n11.step_definitions.MikroStepDefs.userClicksToButton(java.lang.String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "verify open the \"istek-listelerim\" page",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "com.n11.step_definitions.MikroStepDefs.verifyOpenThePage(java.lang.String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "verify displayed the \"Favorilerim / Listelerim\" title",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "com.n11.step_definitions.MikroStepDefs.verifyDisplayedTheTitle(java.lang.String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "click the favorilerim button",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "com.n11.step_definitions.MikroStepDefs.clickTheFavorilerimButton()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "verify that page title starts with \"Favorilerim\"",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "com.n11.step_definitions.MikroStepDefs.verify_that_user_is_on_the_page(java.lang.String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "user deletes the product from the favorites",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "com.n11.step_definitions.MikroStepDefs.userDeleteTheProduct()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "verify that \"Ürününüz listeden silindi.\" message is displayed",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "com.n11.step_definitions.MikroStepDefs.verify_that_the_image_which_shows_the_list_empty_is_visible(java.lang.String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "user clicks to \"Çıkış Yap\" button",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "com.n11.step_definitions.MikroStepDefs.userClicksToButton(java.lang.String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "verify user log out",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "com.n11.step_definitions.MikroStepDefs.verifyUserLogOut()"
 });
 formatter.result({
   "status": "passed"

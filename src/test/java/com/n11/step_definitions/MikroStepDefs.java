@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit;
 
 public class MikroStepDefs {
 
-    MikroPage mikro = new MikroPage();
+  //  MikroPage mikro = new MikroPage();
     HomePage homePage = new HomePage();
     FacebookAuthPage facebookAuthPage = new FacebookAuthPage();
     LoginPage loginPage = new LoginPage();
@@ -213,7 +213,7 @@ public class MikroStepDefs {
 
 
 
-
+/*
     @When("user clicks Çıkış Yap button")
     public void userClicksÇıkışYapButton() throws InterruptedException {
 
@@ -225,6 +225,7 @@ public class MikroStepDefs {
         homePage.ÇıkışYapButton.click();
 
     }
+*/
 
     @Then("verify user log out")
     public void verifyUserLogOut() {
