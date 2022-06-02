@@ -1,11 +1,11 @@
 $(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/resources/features/Mikro.feature");
 formatter.feature({
-  "name": "n11 case",
+  "name": "n11 automation case",
   "description": "",
   "keyword": "Feature"
 });
 formatter.scenario({
-  "name": "N11 login",
+  "name": "Adding/deleting favourite product",
   "description": "",
   "keyword": "Scenario",
   "tags": [

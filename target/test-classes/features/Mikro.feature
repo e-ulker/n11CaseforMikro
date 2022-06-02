@@ -1,7 +1,7 @@
-Feature: n11 case
+Feature: n11 automation case
 
   @mikro
-  Scenario:N11 login
+  Scenario:Adding/deleting favourite product
     When user navigates to "https://www.n11.com/" page
     Then verify that the page title is "n11.com - Hayat Sana Gelir"
     When user clicks "Giriş Yap" button

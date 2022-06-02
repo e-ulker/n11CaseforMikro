@@ -3,11 +3,11 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2022-06-02T19:01:26.276Z",
+        "start_timestamp": "2022-06-02T20:11:11.171Z",
         "before": [
           {
             "result": {
-              "duration": 3104082700,
+              "duration": 2895257300,
               "status": "passed"
             },
             "match": {
@@ -16,13 +16,13 @@
           }
         ],
         "line": 4,
-        "name": "N11 login",
+        "name": "Adding/deleting favourite product",
         "description": "",
-        "id": "n11-case;n11-login",
+        "id": "n11-automation-case;adding/deleting-favourite-product",
         "after": [
           {
             "result": {
-              "duration": 925257300,
+              "duration": 1187819500,
               "status": "passed"
             },
             "match": {
@@ -35,7 +35,7 @@
         "steps": [
           {
             "result": {
-              "duration": 4137068900,
+              "duration": 4398230000,
               "status": "passed"
             },
             "line": 5,
@@ -53,7 +53,7 @@
           },
           {
             "result": {
-              "duration": 15137900,
+              "duration": 46876600,
               "status": "passed"
             },
             "line": 6,
@@ -71,7 +71,7 @@
           },
           {
             "result": {
-              "duration": 5036618100,
+              "duration": 4989593700,
               "status": "passed"
             },
             "line": 7,
@@ -89,7 +89,7 @@
           },
           {
             "result": {
-              "duration": 5314366800,
+              "duration": 5250308700,
               "status": "passed"
             },
             "line": 8,
@@ -101,7 +101,7 @@
           },
           {
             "result": {
-              "duration": 4504104500,
+              "duration": 6359065100,
               "status": "passed"
             },
             "line": 9,
@@ -119,7 +119,7 @@
           },
           {
             "result": {
-              "duration": 11546082100,
+              "duration": 10809039000,
               "status": "passed"
             },
             "line": 10,
@@ -137,7 +137,7 @@
           },
           {
             "result": {
-              "duration": 13961200,
+              "duration": 13961900,
               "status": "passed"
             },
             "line": 11,
@@ -155,7 +155,7 @@
           },
           {
             "result": {
-              "duration": 4381963300,
+              "duration": 3667718400,
               "status": "passed"
             },
             "line": 12,
@@ -173,7 +173,7 @@
           },
           {
             "result": {
-              "duration": 20933300,
+              "duration": 5983800,
               "status": "passed"
             },
             "line": 13,
@@ -195,7 +195,7 @@
           },
           {
             "result": {
-              "duration": 468102600,
+              "duration": 443813700,
               "status": "passed"
             },
             "line": 14,
@@ -213,7 +213,7 @@
           },
           {
             "result": {
-              "duration": 4430045800,
+              "duration": 4013963000,
               "status": "passed"
             },
             "line": 15,
@@ -231,7 +231,7 @@
           },
           {
             "result": {
-              "duration": 12762900,
+              "duration": 6979300,
               "status": "passed"
             },
             "line": 16,
@@ -249,7 +249,7 @@
           },
           {
             "result": {
-              "duration": 58834700,
+              "duration": 33911400,
               "status": "passed"
             },
             "line": 17,
@@ -267,7 +267,7 @@
           },
           {
             "result": {
-              "duration": 2116354200,
+              "duration": 2039804400,
               "status": "passed"
             },
             "line": 18,
@@ -279,7 +279,7 @@
           },
           {
             "result": {
-              "duration": 6981000,
+              "duration": 6975000,
               "status": "passed"
             },
             "line": 19,
@@ -297,7 +297,7 @@
           },
           {
             "result": {
-              "duration": 429251400,
+              "duration": 270278100,
               "status": "passed"
             },
             "line": 20,
@@ -309,7 +309,7 @@
           },
           {
             "result": {
-              "duration": 211336800,
+              "duration": 260302900,
               "status": "passed"
             },
             "line": 21,
@@ -327,7 +327,7 @@
           },
           {
             "result": {
-              "duration": 4962032700,
+              "duration": 5406347700,
               "status": "passed"
             },
             "line": 22,
@@ -345,7 +345,7 @@
           },
           {
             "result": {
-              "duration": 7921900,
+              "duration": 5985500,
               "status": "passed"
             },
             "line": 23,
@@ -363,9 +363,9 @@
         ]
       }
     ],
-    "name": "n11 case",
+    "name": "n11 automation case",
     "description": "",
-    "id": "n11-case",
+    "id": "n11-automation-case",
     "keyword": "Feature",
     "uri": "file:src/test/resources/features/Mikro.feature",
     "tags": []

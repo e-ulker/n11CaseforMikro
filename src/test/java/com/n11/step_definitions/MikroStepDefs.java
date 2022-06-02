@@ -212,21 +212,6 @@ public class MikroStepDefs {
 
 
 
-
-/*
-    @When("user clicks Çıkış Yap button")
-    public void userClicksÇıkışYapButton() throws InterruptedException {
-
-        Actions actions = new Actions(Driver.get());
-
-        Thread.sleep(2000);
-        actions.moveToElement(homePage.Hesabım).perform();
-
-        homePage.ÇıkışYapButton.click();
-
-    }
-*/
-
     @Then("verify user log out")
     public void verifyUserLogOut() {
 

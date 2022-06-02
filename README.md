@@ -34,6 +34,9 @@ To run UI  tests only, navigate to com/n11/runners/CukesRunner.java directory an
 CukesRunner
 
 Reporting
+
+After test finishes, target folder is created under project.
+Cucumber html report can be found under target/cucumber-html-reports and can be opened with any browser.
 Reports for each module are written into their respective /target directories after a successful run.
 UI acceptance tests result in a HTML report for each feature in
 target/cucumber-html-reports and target/default-html-reports/index.html

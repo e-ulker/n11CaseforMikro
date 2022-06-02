@@ -9,7 +9,6 @@ public class MyFavouritesPage extends BasePage{
 
 
 
-
     @FindBy(xpath = "(//a[text()='Favorilerim / Listelerim'])[1]")
     public WebElement FavorilerimListerimButton;
 
@@ -36,8 +35,6 @@ public class MyFavouritesPage extends BasePage{
 
     @FindBy(css = ".btn.btnBlack.confirm")
     public WebElement TamamButton;
-
-
 
 
 
