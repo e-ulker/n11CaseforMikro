@@ -1,8 +1,9 @@
 package com.n11.step_definitions;
 
 
-import com.n11.pages.MikroPage;
+import com.n11.pages.*;
 import com.n11.utilities.BrowserUtils;
+import com.n11.utilities.ConfigurationReader;
 import com.n11.utilities.Driver;
 import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
@@ -13,97 +14,103 @@ import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 public class MikroStepDefs {
 
-    WebDriver driver;
     MikroPage mikro = new MikroPage();
+    HomePage homePage = new HomePage();
+    FacebookAuthPage facebookAuthPage = new FacebookAuthPage();
+    LoginPage loginPage = new LoginPage();
+    MyFavouritesPage myFavouritesPage = new MyFavouritesPage();
+    SearchResultPage searchResultPage = new SearchResultPage();
 
-    @Given("user goes to {string} pagee")
+    @Given("user navigates to {string} page")
     public void theUserGoesToPagee(String url) {
-        Driver.get().get(url);
+        Driver.get().get(ConfigurationReader.get("url"));
 
     }
 
+    @Then("verify that the page title is {string}")
+    public void verify_that_the_page_title_is(String pageTitle) {
+        String actualPageTitle = Driver.get().getTitle();
+        String expectedPageTitle = pageTitle;
 
-    @Then("verify user in homepage")
-    public void verifyUserInHomepage() {
-        String expectedURL = "https://www.n11.com/";
-        String actualURL = Driver.get().getCurrentUrl();
-        Assert.assertTrue(expectedURL.equals(actualURL));
-
+        Assert.assertEquals(expectedPageTitle, actualPageTitle);
     }
+
 
     @And("user clicks {string} button")
     public void userClicksButton(String GirişYap) {
-        mikro.GirişYapButton.click();
+        homePage.GirişYapButton.click();
 
-        if (mikro.Dahasonra.isDisplayed()){
-            mikro.Dahasonra.click();
-        }else{
-            BrowserUtils.waitFor(2);
+        if (homePage.Dahasonra.isDisplayed()) {
+            homePage.Dahasonra.click();
+        } else {
+            Driver.get().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         }
 
     }
 
 
-    @And("user logs in with {string} andd {string}")
-    public void userLogsInWithAndd(String email, String password) throws InterruptedException {
 
-        BrowserUtils.waitFor(3);
-        mikro.DahaSonraButton.click();
-        BrowserUtils.waitFor(3);
-        mikro.EmailBox.sendKeys(email);
-        mikro.PasswordBox.sendKeys(password);
-        mikro.LoginButton.click();
+    @And("user logs in with Facebook")
+    public void clickFacebookIleGirişYapButtonForLoginWithFacebookAccount() {
+        Driver.get().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        homePage.DahaSonraButton.click();
+        Driver.get().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
-
-    }
-
-
-    @Then("verify user login in the webpage")
-    public void verifyUserLoginInTheWebpage() throws InterruptedException {
-
-
-        Assert.assertTrue(mikro.UserName.isDisplayed());
+        facebookAuthPage.FacebookGirişButton.click();
+        loginPage.loginWithFacebook();
 
 
     }
 
 
-    @When("user write {string} in searchBox")
+
+    @Then("verify that username {string} is visible under My Account")
+    public void verify_that_is_visible_under_My_Account(String expectedUsername) {
+
+        WebDriverWait wait = new WebDriverWait(Driver.get(), 10);
+        wait.until(ExpectedConditions.visibilityOf(homePage.UserName));
+
+        Assert.assertEquals(expectedUsername, homePage.UserName.getText());
+
+    }
+
+
+    @When("user searches for {string}")
     public void userWriteInSearchBox(String item) {
-        BrowserUtils.waitFor(2);
-        mikro.SearchBox.click();
+        BrowserUtils.waitFor(5);
+        homePage.SearchBox.click();
 
-        mikro.SearchBox.sendKeys("Iphone");
+        homePage.SearchBox.sendKeys("Iphone");
         BrowserUtils.waitFor(2);
-        mikro.SearchButton.click();
+        homePage.SearchButton.click();
     }
 
 
-    @Then("user should see the {string} results")
+    @Then("verify that user sees the results for {string}")
     public void userShouldSeeTheResults(String Iphone) {
 
-        String actual = mikro.IphoneResults.getText();
+
+        String ActualResult = Driver.get().getCurrentUrl();
+        String expected = Iphone;
+        Assert.assertTrue(ActualResult.contains(Iphone));
+
+/*
+        String actual = searchResultPage.IphoneResults.getText();
         String expected = Iphone;
 
         Assert.assertTrue(actual.contains(expected));
-
-
-/*
-        String ActualResult = driver.getCurrentUrl();
-        String expected=Iphone;
-        Assert.assertTrue(ActualResult.contains(Iphone));
-
-        Url i al
-
-        Note:aslında ne ararsan iphone my Iphone mu ne yazarsan üstte,url kısmında o yazıyor,
-        ama ancak UI da webpage üzerinde Iphone olarak otomatik düzeltir
-
 */
+
+
+        //Note: 2 türlü de olur assertion,ancak 2.si daha dynamic.
 
 
     }
@@ -111,35 +118,37 @@ public class MikroStepDefs {
 
     @And("click the page {string}")
     public void clickThePage(String page) {
-        mikro.ClickPage(page);
-
+        homePage.ClickPage(page);
 
     }
 
     @Then("verify for {string} results are opened in page {string}")
     public void verifyForResultsAreOpenedInPage(String item, String page) {
 
-        mikro.AssertOpenedPage(item, page);
+        homePage.AssertOpenedPage(item, page);
 
     }
 
-    @When("user add {string}th product in favorite")
+    @When("user adds the product number {string} on the page to Favourites")
     public void userAddThProductInFavorite(String FavoriteProductNumber) {
-        mikro.AddFavorite(FavoriteProductNumber);
+        searchResultPage.AddFavorite(FavoriteProductNumber);
 
     }
 
 
     @And("user clicks to {string} button")
-    public void userClicksToButton(String favorilerim) throws InterruptedException {
+    public void userClicksToButton(String subpageName) throws InterruptedException {
 
 
         Actions actions = new Actions(Driver.get());
 
         Thread.sleep(2000);
-        actions.moveToElement(mikro.Hesabım).perform();
+        actions.moveToElement(homePage.Hesabım).perform();
 
-        mikro.FavorilerimListerimButton.click();
+
+        homePage.navigateToHesabımSubpage(subpageName);
+
+
 
 
     }
@@ -147,8 +156,8 @@ public class MikroStepDefs {
     @Then("verify open the {string} page")
     public void verifyOpenThePage(String İstekListem) {
         String actualUrl = Driver.get().getCurrentUrl();
-        System.out.println("istek listerim mi=?"+actualUrl);
         String expectedUrl = "istek-listelerim";
+
         Assert.assertTrue(actualUrl.contains(expectedUrl));
 
     }
@@ -157,11 +166,11 @@ public class MikroStepDefs {
     @Then("verify displayed the {string} title")
     public void verifyDisplayedTheTitle(String favorilerimTitle) {
 
-        String ActualTitle = mikro.FavorilerimListerimTitle.getText();
-        System.out.println(ActualTitle);
+        String ActualTitle = myFavouritesPage.FavorilerimListerimTitle.getText();
         String ExpectedTitle = favorilerimTitle;
 
         Assert.assertTrue(ActualTitle.equals(ExpectedTitle));
+
 
     }
 
@@ -169,71 +178,41 @@ public class MikroStepDefs {
     @And("click the favorilerim button")
     public void clickTheFavorilerimButton() {
 
-        mikro.FavorilerimListResults.click();
+        myFavouritesPage.FavorilerimListResults.click();
+
+        WebDriverWait wait = new WebDriverWait(Driver.get(), 10);
+        wait.until(ExpectedConditions.visibilityOf(myFavouritesPage.Favorilerimdekiürün));
 
     }
 
-
-    @Then("verify user in Favorilerim page")
-    public void verifyUserInFavorilerimPage() {
-
-        String actualtitle = mikro.FavorilerimTitle.getText();
-        String expectedtitle = "Favorilerim";
-        Assert.assertTrue(actualtitle.equals(expectedtitle));
-
+    @Then("verify that page title starts with {string}")
+    public void verify_that_user_is_on_the_page(String expectedPageName) {
+        Assert.assertTrue(Driver.get().getTitle().startsWith(expectedPageName));
     }
 
-    @When("user delete the product")
+
+
+
+
+    @When("user deletes the product from the favorites")
     public void userDeleteTheProduct() {
-        mikro.FavoriListtenÜrünüSilme.click();
-
-    }
-
-    @Then("verify the product is deleted")
-    public void verifyTheProductIsDeleted() {
-
-        Assert.assertTrue(mikro.MessageOfDeleted.isDisplayed());
-        mikro.TamamButton.click();
+        Driver.get().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        myFavouritesPage.FavoriListtenÜrünüSilme.click();
 
     }
 
 
-    @And("click Facebook ile giriş yap button for login with facebook account")
-    public void clickFacebookIleGirişYapButtonForLoginWithFacebookAccount() {
-        BrowserUtils.waitFor(4);
-        mikro.DahaSonraButton.click();
-        BrowserUtils.waitFor(2);
-        mikro.FacebookGirişButton.click();
 
-        BrowserUtils.switchToWindowWithIndex(1);
-        BrowserUtils.waitFor(2);
-
-        mikro.FacebookEmailButton.sendKeys("elifulker1521@gmail.com");
-        mikro.FacebookPasswordButton.sendKeys("e123456u");
-        mikro.facebookgirişbutton.click();
-
-        BrowserUtils.switchToWindowWithIndex(0);
-        BrowserUtils.waitFor(2);
-
-/*
-
-       // Ramazan Abiden methodlar windowhandle methodları
-
-            for(String windowHandle:driver.getWindowHandles()){
-            if(!windowHandle.equals(mainWindowHandle)){
-                driver.switchTo().window(windowHandle);
-            }
-        }
-        for(String windowHandle:driver.getWindowHandles()){
-            if(!windowHandle.equals(popupWindowHandle)){
-                driver.switchTo().window(windowHandle);
-            }
-        }
-
-*/
-
-
+    @Then("verify that {string} message is displayed")
+    public void verify_that_the_image_which_shows_the_list_empty_is_visible(String expectedMessage) {
+        Assert.assertEquals(expectedMessage, myFavouritesPage.MessageOfDeleted.getText());
+        myFavouritesPage.TamamButton.click();
     }
+
+
+
+
+
 
     @When("user clicks Çıkış Yap button")
     public void userClicksÇıkışYapButton() throws InterruptedException {
@@ -241,22 +220,19 @@ public class MikroStepDefs {
         Actions actions = new Actions(Driver.get());
 
         Thread.sleep(2000);
-        actions.moveToElement(mikro.Hesabım).perform();
+        actions.moveToElement(homePage.Hesabım).perform();
 
-        mikro.ÇıkışYapButton.click();
-
+        homePage.ÇıkışYapButton.click();
 
     }
 
     @Then("verify user log out")
     public void verifyUserLogOut() {
 
-     //   Assert.assertTrue(mikro.LoginButton.isDisplayed());
+        String ActualTitle = Driver.get().getTitle();
+        String ExpectedTitle = "Giriş Yap - n11.com";
 
-        String ActualTitle=Driver.get().getTitle();
-        String ExpectedTitle="Giriş Yap - n11.com";
-
-        Assert.assertEquals(ExpectedTitle,ActualTitle);
+        Assert.assertEquals(ExpectedTitle, ActualTitle);
 
     }
 }

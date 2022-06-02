@@ -38,11 +38,6 @@ public class BrowserUtils {
         ((JavascriptExecutor) Driver.get()).executeScript("arguments[0].click();", element);
     }
 
-    public static void switchToWindowWithIndex(int index) {
-        List<String> windowHandles = new ArrayList<>(Driver.get().getWindowHandles());
-        Driver.get().switchTo().window(windowHandles.get(index));
-    }
-
 
 
 
