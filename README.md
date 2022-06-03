@@ -1,6 +1,8 @@
 test-automation-n11AutomationCase
 n11AutomationCase Adding/Deleting favourite product project for test automation, covering UI acceptance testing
 
+Prerequisites: Install Maven v4.0 or above
+
 Concepts Included
 Cucumber BDD testing for UI
 Shared state across cucumber step definitions
