@@ -29,6 +29,12 @@ cucumber-java - version 5.7.0
 cucumber-junit - version 5.7.0
 
 
+
+Prerequite
+
+install maven version 4.0.0 or above.
+
+
 Usage
 To run UI  tests only, navigate to com/n11/runners/CukesRunner.java directory and run:
 CukesRunner
