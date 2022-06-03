@@ -27,6 +27,8 @@ public class MikroStepDefs {
     LoginPage loginPage = new LoginPage();
     MyFavouritesPage myFavouritesPage = new MyFavouritesPage();
     SearchResultPage searchResultPage = new SearchResultPage();
+    BrowserUtils browserUtils = new BrowserUtils();
+
 
     @Given("user navigates to {string} page")
     public void theUserGoesToPagee(String url) {
@@ -40,6 +42,7 @@ public class MikroStepDefs {
         String expectedPageTitle = pageTitle;
 
         Assert.assertEquals(expectedPageTitle, actualPageTitle);
+
     }
 
 
@@ -56,7 +59,6 @@ public class MikroStepDefs {
     }
 
 
-
     @And("user logs in with Facebook")
     public void clickFacebookIleGirişYapButtonForLoginWithFacebookAccount() {
         Driver.get().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
@@ -68,7 +70,6 @@ public class MikroStepDefs {
 
 
     }
-
 
 
     @Then("verify that username {string} is visible under My Account")
@@ -111,7 +112,6 @@ public class MikroStepDefs {
 
         //Note: 2 türlü de olur assertion,ancak 2.si daha dynamic.
 
-
     }
 
 
@@ -146,8 +146,6 @@ public class MikroStepDefs {
 
 
         homePage.navigateToHesabımSubpage(subpageName);
-
-
 
 
     }
@@ -187,10 +185,8 @@ public class MikroStepDefs {
     @Then("verify that page title starts with {string}")
     public void verify_that_user_is_on_the_page(String expectedPageName) {
         Assert.assertTrue(Driver.get().getTitle().startsWith(expectedPageName));
+
     }
-
-
-
 
 
     @When("user deletes the product from the favorites")
@@ -201,14 +197,12 @@ public class MikroStepDefs {
     }
 
 
-
     @Then("verify that {string} message is displayed")
     public void verify_that_the_image_which_shows_the_list_empty_is_visible(String expectedMessage) {
         Assert.assertEquals(expectedMessage, myFavouritesPage.MessageOfDeleted.getText());
         myFavouritesPage.TamamButton.click();
+
     }
-
-
 
 
     @Then("verify user log out")
@@ -218,6 +212,5 @@ public class MikroStepDefs {
         String ExpectedTitle = "Giriş Yap - n11.com";
 
         Assert.assertEquals(ExpectedTitle, ActualTitle);
-
     }
 }

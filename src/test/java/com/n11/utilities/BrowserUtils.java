@@ -1,11 +1,12 @@
 package com.n11.utilities;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +40,21 @@ public class BrowserUtils {
     }
 
 
+    public void screenshotMethod() {
 
+
+        //Take the screenshot
+        File screenshot = ((TakesScreenshot) Driver.get()).getScreenshotAs(OutputType.FILE);
+
+        //Copy the file to a location and use try catch block to handle exception
+        try {
+            FileUtils.copyFile(screenshot, new File("C:\\projectScreenshots\\homePageScreenshot.png"));
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+
+
+    }
 
 
 }
