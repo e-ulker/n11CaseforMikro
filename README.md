@@ -36,11 +36,11 @@ CukesRunner
 PS: In case any problem happens while running the tests, please check the jdk version from project settings and choose the proper one or the one installed on your computer.
 
 
-After cloning repository to your local, in terminal go to the project folder.
-Then execute "mvn verify" code.
-
-
 Reporting
+
+If you want to get report, go to maven lifecycle and click verify
+![image](https://user-images.githubusercontent.com/103744892/171798969-38e0383c-f54c-4635-bb0f-6243499b6f5a.png)
+
 
 After test finishes, target folder is created under project.
 Cucumber html report can be found under target/cucumber-html-reports and can be opened with any browser.
