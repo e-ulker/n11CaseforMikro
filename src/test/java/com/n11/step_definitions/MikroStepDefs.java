@@ -10,13 +10,18 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -32,6 +37,17 @@ public class MikroStepDefs {
     public void theUserGoesToPagee(String url) {
         Driver.get().get(ConfigurationReader.get("url"));
 
+        //Take the screenshot
+        File screenshot = ((TakesScreenshot) Driver.get()).getScreenshotAs(OutputType.FILE);
+
+//Copy the file to a location and use try catch block to handle exception
+        try {
+            FileUtils.copyFile(screenshot, new File("C:\\projectScreenshots\\homePageScreenshot.png"));
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+
+
     }
 
     @Then("verify that the page title is {string}")
@@ -40,6 +56,16 @@ public class MikroStepDefs {
         String expectedPageTitle = pageTitle;
 
         Assert.assertEquals(expectedPageTitle, actualPageTitle);
+
+        //Take the screenshot
+        File screenshot = ((TakesScreenshot) Driver.get()).getScreenshotAs(OutputType.FILE);
+
+//Copy the file to a location and use try catch block to handle exception
+        try {
+            FileUtils.copyFile(screenshot, new File("C:\\projectScreenshots\\homePageScreenshot.png"));
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 
@@ -79,6 +105,16 @@ public class MikroStepDefs {
 
         Assert.assertEquals(expectedUsername, homePage.UserName.getText());
 
+        //Take the screenshot
+        File screenshot = ((TakesScreenshot) Driver.get()).getScreenshotAs(OutputType.FILE);
+
+//Copy the file to a location and use try catch block to handle exception
+        try {
+            FileUtils.copyFile(screenshot, new File("C:\\projectScreenshots\\homePageScreenshot.png"));
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 
 
@@ -112,6 +148,17 @@ public class MikroStepDefs {
         //Note: 2 türlü de olur assertion,ancak 2.si daha dynamic.
 
 
+        //Take the screenshot
+        File screenshot = ((TakesScreenshot) Driver.get()).getScreenshotAs(OutputType.FILE);
+
+//Copy the file to a location and use try catch block to handle exception
+        try {
+            FileUtils.copyFile(screenshot, new File("C:\\projectScreenshots\\homePageScreenshot.png"));
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+
+
     }
 
 
@@ -126,11 +173,23 @@ public class MikroStepDefs {
 
         homePage.AssertOpenedPage(item, page);
 
+        //Take the screenshot
+        File screenshot = ((TakesScreenshot) Driver.get()).getScreenshotAs(OutputType.FILE);
+
+//Copy the file to a location and use try catch block to handle exception
+        try {
+            FileUtils.copyFile(screenshot, new File("C:\\projectScreenshots\\homePageScreenshot.png"));
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 
     @When("user adds the product number {string} on the page to Favourites")
     public void userAddThProductInFavorite(String FavoriteProductNumber) {
         searchResultPage.AddFavorite(FavoriteProductNumber);
+
+
 
     }
 
@@ -159,6 +218,16 @@ public class MikroStepDefs {
 
         Assert.assertTrue(actualUrl.contains(expectedUrl));
 
+        //Take the screenshot
+        File screenshot = ((TakesScreenshot) Driver.get()).getScreenshotAs(OutputType.FILE);
+
+//Copy the file to a location and use try catch block to handle exception
+        try {
+            FileUtils.copyFile(screenshot, new File("C:\\projectScreenshots\\homePageScreenshot.png"));
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 
 
@@ -169,6 +238,16 @@ public class MikroStepDefs {
         String ExpectedTitle = favorilerimTitle;
 
         Assert.assertTrue(ActualTitle.equals(ExpectedTitle));
+
+        //Take the screenshot
+        File screenshot = ((TakesScreenshot) Driver.get()).getScreenshotAs(OutputType.FILE);
+
+//Copy the file to a location and use try catch block to handle exception
+        try {
+            FileUtils.copyFile(screenshot, new File("C:\\projectScreenshots\\homePageScreenshot.png"));
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
 
 
     }
@@ -187,6 +266,16 @@ public class MikroStepDefs {
     @Then("verify that page title starts with {string}")
     public void verify_that_user_is_on_the_page(String expectedPageName) {
         Assert.assertTrue(Driver.get().getTitle().startsWith(expectedPageName));
+
+        //Take the screenshot
+        File screenshot = ((TakesScreenshot) Driver.get()).getScreenshotAs(OutputType.FILE);
+
+//Copy the file to a location and use try catch block to handle exception
+        try {
+            FileUtils.copyFile(screenshot, new File("C:\\projectScreenshots\\homePageScreenshot.png"));
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 
@@ -206,6 +295,16 @@ public class MikroStepDefs {
     public void verify_that_the_image_which_shows_the_list_empty_is_visible(String expectedMessage) {
         Assert.assertEquals(expectedMessage, myFavouritesPage.MessageOfDeleted.getText());
         myFavouritesPage.TamamButton.click();
+
+        //Take the screenshot
+        File screenshot = ((TakesScreenshot) Driver.get()).getScreenshotAs(OutputType.FILE);
+
+//Copy the file to a location and use try catch block to handle exception
+        try {
+            FileUtils.copyFile(screenshot, new File("C:\\projectScreenshots\\homePageScreenshot.png"));
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 
@@ -218,6 +317,16 @@ public class MikroStepDefs {
         String ExpectedTitle = "Giriş Yap - n11.com";
 
         Assert.assertEquals(ExpectedTitle, ActualTitle);
+
+        //Take the screenshot
+        File screenshot = ((TakesScreenshot) Driver.get()).getScreenshotAs(OutputType.FILE);
+
+//Copy the file to a location and use try catch block to handle exception
+        try {
+            FileUtils.copyFile(screenshot, new File("C:\\projectScreenshots\\homePageScreenshot.png"));
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
 
     }
 }
