@@ -68,7 +68,6 @@ public class MikroStepDefs {
         facebookAuthPage.FacebookGirişButton.click();
         loginPage.loginWithFacebook();
 
-
     }
 
 
@@ -118,7 +117,6 @@ public class MikroStepDefs {
     @And("click the page {string}")
     public void clickThePage(String page) {
         homePage.ClickPage(page);
-
     }
 
     @Then("verify for {string} results are opened in page {string}")
@@ -147,7 +145,6 @@ public class MikroStepDefs {
 
         homePage.navigateToHesabımSubpage(subpageName);
 
-
     }
 
     @Then("verify open the {string} page")
@@ -167,7 +164,6 @@ public class MikroStepDefs {
         String ExpectedTitle = favorilerimTitle;
 
         Assert.assertTrue(ActualTitle.equals(ExpectedTitle));
-
 
     }
 
