@@ -33,6 +33,9 @@ Usage
 To run UI  tests only, navigate to com/n11/runners/CukesRunner.java directory and run:
 CukesRunner
 
+PS: In case any problem happens while running the tests, please check the jdk version from project settings and choose the proper one or the one installed on your computer.
+
+
 After cloning repository to your local, in terminal go to the project folder.
 Then execute "mvn verify" code.
 
